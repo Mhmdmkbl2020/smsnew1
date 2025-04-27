@@ -1,14 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.python_res"> <!-- يجب أن يطابق namespace في build.gradle -->
+    package="com.example.python_res">
 
-    <!-- تصريحات الأذونات الأساسية -->
+    <!-- أذونات التطبيق -->
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.BLUETOOTH"/>
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
     <application
-        android:name="io.flutter.app.FlutterApplication"
         android:label="Python_res"
         android:icon="@mipmap/ic_launcher">
         
@@ -24,7 +23,7 @@
             </intent-filter>
         </activity>
 
-        <!-- دعم Flutter -->
+        <!-- تحديث Flutter Embedding إلى الإصدار 2 -->
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
