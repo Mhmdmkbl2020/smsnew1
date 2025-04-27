@@ -1,0 +1,17 @@
+name: Flutter Build
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.29.3'
+      - run: flutter clean
+      - run: flutter pub get
+      - run: flutter build apk --release --split-per-abi
