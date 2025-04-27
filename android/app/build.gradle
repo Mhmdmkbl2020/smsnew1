@@ -1,0 +1,47 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+}
+
+def localPropertiesFile = new File(rootProject.projectDir, "local.properties")
+def properties = new Properties()
+
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader("UTF-8") { reader ->
+        properties.load(reader)
+    }
+}
+
+def flutterVersionCode = properties.getProperty("flutter.versionCode")?.toInteger() ?: 1
+def flutterVersionName = properties.getProperty("flutter.versionName") ?: "1.0"
+
+android {
+    namespace "com.example.python_res" // تأكد من التطابق مع package في AndroidManifest.xml
+    compileSdkVersion 34
+
+    defaultConfig {
+        applicationId "com.example.python_res"
+        minSdkVersion 24
+        targetSdkVersion 34
+        versionCode flutterVersionCode
+        versionName flutterVersionName
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.debug
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+}
+
+flutter {
+    source '../..'
+}
