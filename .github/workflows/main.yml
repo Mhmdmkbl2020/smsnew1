@@ -25,6 +25,7 @@ jobs:
           flutter clean
           rm -rf android/.gradle
           rm -rf android/app/build
+          rm -rf build
 
       - name: Get dependencies
         run: flutter pub get
