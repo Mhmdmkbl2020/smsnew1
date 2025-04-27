@@ -1,14 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.python_res">
+    package="com.example.smsnew1"> <!-- تطابق مع namespace في build.gradle -->
 
-    <!-- أذونات التطبيق -->
     <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.BLUETOOTH"/>
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
     <application
-        android:label="Python_res"
+        android:label="smsnew1"
         android:icon="@mipmap/ic_launcher">
         
         <activity
@@ -23,9 +22,8 @@
             </intent-filter>
         </activity>
 
-        <!-- تحديث Flutter Embedding إلى الإصدار 2 -->
         <meta-data
             android:name="flutterEmbedding"
-            android:value="2" />
+            android:value="2" /> <!-- استخدام Android Embedding V2 -->
     </application>
 </manifest>
